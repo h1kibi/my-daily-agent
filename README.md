@@ -41,12 +41,10 @@ You should set or adapt the following environment variables on your own machine:
 - Secrets are **not** included in this repository.
 - Some local MCP servers depend on tools you install separately.
 - The included config is a shareable template, not a guarantee that every MCP works out of the box on another machine.
-- The local knowledge base integration has been generalized to `kb` instead of project-specific `SecKB` / `CVEKB` naming.
+- The local knowledge base integration uses the generic `kb` naming.
 
 ## Usage
 
-Open this folder as an opencode workspace:
-
-`C:\Users\Administrator\Desktop\Agent\my-daily-agent`
+Open this folder as an opencode workspace.
 
 The workspace-local config defaults to the `my-daily-agent` agent.

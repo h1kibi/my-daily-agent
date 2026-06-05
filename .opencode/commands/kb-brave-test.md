@@ -1,5 +1,5 @@
 ---
-description: 测试 Brave API Key、Brave MCP、本地采集脚本是否正常
+description: 测试 Brave API Key、Brave MCP、本地知识库采集脚本是否正常
 agent: build
 ---
 
@@ -20,13 +20,13 @@ curl.exe "https://api.search.brave.com/res/v1/web/search?q=test" -H "Accept: app
 
 ### Test 3: 采集脚本
 ```bash
-cd C:\Users\Administrator\Desktop\SecKB
+cd <KB_WORKSPACE>
 .\.venv\Scripts\python.exe .\scripts\collect_brave.py "测试" --min-candidates 5 --max-read 2 --max-save 1 --per-domain 1
 ```
 
 ### Test 4: 本地检索
 ```bash
-cd C:\Users\Administrator\Desktop\SecKB
+cd <KB_WORKSPACE>
 .\.venv\Scripts\python.exe .\scripts\search_kb_text.py "测试"
 ```
 

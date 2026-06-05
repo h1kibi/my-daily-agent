@@ -1,5 +1,5 @@
 ---
-description: 研究 GitHub 项目（只读），提取关键信息写入 Obsidian
+description: 研究 GitHub 项目（只读），提取关键信息写入本地知识库
 agent: build
 ---
 
@@ -27,7 +27,7 @@ opencode mcp enable github
 - 与知识库研究的关联
 - 可复用的技术点
 
-### Step 4: 写入 Obsidian
+### Step 4: 写入本地知识库
 将分析结果写入本地知识库 Markdown 目录，格式同其他采集文章。
 
 ### Step 5: 任务完成后关闭 GitHub MCP
