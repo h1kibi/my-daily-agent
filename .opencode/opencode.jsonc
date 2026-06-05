@@ -1,0 +1,229 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "my-daily-agent",
+  "agent": {
+    "build": {
+      "disable": true,
+      "description": "Disabled so the agent cycle stays focused on the shared daily workflow."
+    },
+    "plan": {
+      "disable": true,
+      "description": "Disabled so the agent cycle stays focused on the shared daily workflow."
+    }
+  },
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git branch*": "allow",
+      "git add*": "ask",
+      "git commit*": "ask",
+      "git push*": "ask",
+      "rm *": "deny",
+      "Remove-Item *": "deny",
+      "del *": "deny",
+      "curl *": "ask",
+      "python *": "ask",
+      "npm *": "ask"
+    },
+    "edit": "ask",
+    "archive-safe-extract": "allow",
+    "image-file-info": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      "**/.ssh/**": "deny",
+      "**/.aws/**": "deny",
+      "**/.azure/**": "deny",
+      "**/.gcloud/**": "deny",
+      "**/.kube/**": "deny",
+      "**/.docker/config.json": "deny",
+      "**/.npmrc": "deny",
+      "**/.pypirc": "deny",
+      "**/.netrc": "deny",
+      "**/id_rsa*": "deny",
+      "**/id_dsa*": "deny",
+      "**/id_ecdsa*": "deny",
+      "**/id_ed25519*": "deny",
+      "**/*_key.pem": "deny",
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      "**/*.p12": "deny",
+      "**/*.pfx": "deny",
+      "**/credentials": "deny",
+      "**/credentials.*": "deny",
+      "**/*credentials*.json": "deny",
+      "**/*secret*.json": "deny",
+      "**/*token*.json": "deny",
+      "**/*secrets*.yaml": "deny",
+      "**/*secrets*.yml": "deny"
+    },
+    "external_directory": {
+      "C:\\**": "allow"
+    },
+    "webfetch": "ask",
+    "websearch": "ask"
+  },
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "{env:OPENCODE_FILESYSTEM_ROOT}"
+      ],
+      "enabled": true
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "enabled": true,
+      "headers": {
+        "X-MCP-Readonly": "true",
+        "Authorization": "Bearer {env:GITHUB_PAT}"
+      }
+    },
+    "browser": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp",
+        "--headless",
+        "--isolated",
+        "--slim"
+      ],
+      "enabled": true
+    },
+    "brave_search": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@brave/brave-search-mcp-server",
+        "--transport",
+        "stdio"
+      ],
+      "environment": {
+        "BRAVE_API_KEY": "{env:BRAVE_API_KEY}",
+        "BRAVE_MCP_ENABLED_TOOLS": "brave_web_search brave_news_search brave_image_search brave_video_search brave_summarizer_search"
+      },
+      "enabled": false,
+      "timeout": 60000
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "markitdown": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-markdownify-server"
+      ],
+      "enabled": true
+    },
+    "obsidian": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "obsidian-mcp-server"
+      ],
+      "environment": {
+        "OBSIDIAN_API_KEY": "{env:OBSIDIAN_API_KEY}",
+        "OBSIDIAN_BASE_URL": "{env:OBSIDIAN_BASE_URL}"
+      },
+      "enabled": false
+    },
+    "chroma": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "chroma-mcp",
+        "--client-type",
+        "persistent",
+        "--data-dir",
+        "{env:CHROMA_DB_PATH}"
+      ],
+      "enabled": false
+    },
+    "anysearch": {
+      "type": "remote",
+      "url": "https://api.anysearch.com/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:ANYSEARCH_API_KEY}"
+      },
+      "enabled": true,
+      "timeout": 60000
+    },
+    "seckb": {
+      "type": "local",
+      "command": [
+        "{env:SECKB_PYTHON}",
+        "{env:SECKB_MCP_SERVER}"
+      ],
+      "environment": {
+        "SECKB_ROOT": "{env:SECKB_ROOT}",
+        "SECKB_CONFIG": "{env:SECKB_CONFIG}",
+        "PYTHONUTF8": "1",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "enabled": true,
+      "timeout": 60000
+    },
+    "cvekb": {
+      "type": "local",
+      "command": [
+        "{env:CVEKB_PYTHON}",
+        "{env:CVEKB_MCP_SERVER}"
+      ],
+      "environment": {
+        "CVEKB_ROOT": "{env:CVEKB_ROOT}",
+        "PYTHONUTF8": "1",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "enabled": true,
+      "timeout": 60000
+    }
+  },
+  "tool_output": {
+    "max_lines": 500,
+    "max_bytes": 30000
+  },
+  "compaction": {
+    "auto": true,
+    "prune": false,
+    "tail_turns": 40,
+    "reserved": 12000
+  },
+  "plugin": [
+    "oh-my-openagent@latest"
+  ],
+  "skills": {
+    "paths": [
+      "./skills"
+    ]
+  },
+  "instructions": [
+    "./rules-cn.md"
+  ],
+  "model": "zhijie/gpt-5.4",
+  "small_model": "zhijie/gpt-5.4",
+  "share": "disabled",
+  "watcher": {
+    "ignore": [
+      "**/extracted/**",
+      "**/work/**",
+      "**/node_modules/**",
+      "**/.git/**"
+    ]
+  }
+}
