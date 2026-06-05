@@ -1,5 +1,5 @@
 ---
-description: 用 Brave API 批量搜索并入库到 Obsidian SecKB
+description: 用 Brave API 批量搜索并入库到本地知识库 kb
 agent: build
 model: aipie-cc/claude-opus-4-7
 ---
@@ -19,20 +19,20 @@ model: aipie-cc/claude-opus-4-7
 
 ### Step 2: 执行本地采集脚本
 ```bash
-cd C:\Users\Administrator\Desktop\SecKB
+cd <KB_WORKSPACE>
 .\.venv\Scripts\python.exe .\scripts\collect_brave.py "<用户主题>" --min-candidates 100 --max-read 30 --max-save 18 --per-domain 8
 ```
 
 ### Step 3: 检查结果
-列出 `C:\Users\Administrator\Documents\Obsidian\SecKB\Articles` 下新生成的文件。
-检查 `C:\Users\Administrator\Desktop\SecKB\logs` 下的失败日志。
+列出 `<KB_ARTICLES_DIR>` 下新生成的文件。
+检查 `<KB_LOG_DIR>` 下的失败日志。
 
 ### Step 4: 生成报告
 告诉用户：
 - 总共搜索了多少候选 URL
 - 成功抓取多少篇
 - 失败多少篇
-- 保存到 Obsidian 的路径
+- 保存到本地知识库的路径
 - 生成的主题索引位置
 
 ### Step 5: 质量建议

@@ -26,19 +26,17 @@ You should set or adapt the following environment variables on your own machine:
 - `OBSIDIAN_BASE_URL`
 - `CHROMA_DB_PATH`
 - `ANYSEARCH_API_KEY`
-- `SECKB_PYTHON`
-- `SECKB_MCP_SERVER`
-- `SECKB_ROOT`
-- `SECKB_CONFIG`
-- `CVEKB_PYTHON`
-- `CVEKB_MCP_SERVER`
-- `CVEKB_ROOT`
+- `KB_PYTHON`
+- `KB_MCP_SERVER`
+- `KB_ROOT`
+- `KB_CONFIG`
 
 ## Notes
 
 - Secrets are **not** included in this repository.
 - Some local MCP servers depend on tools you install separately.
 - The included config is a shareable template, not a guarantee that every MCP works out of the box on another machine.
+- The local knowledge base integration has been generalized to `kb` instead of project-specific `SecKB` / `CVEKB` naming.
 
 ## Usage
 

@@ -164,29 +164,15 @@
       "enabled": true,
       "timeout": 60000
     },
-    "seckb": {
+    "kb": {
       "type": "local",
       "command": [
-        "{env:SECKB_PYTHON}",
-        "{env:SECKB_MCP_SERVER}"
+        "{env:KB_PYTHON}",
+        "{env:KB_MCP_SERVER}"
       ],
       "environment": {
-        "SECKB_ROOT": "{env:SECKB_ROOT}",
-        "SECKB_CONFIG": "{env:SECKB_CONFIG}",
-        "PYTHONUTF8": "1",
-        "PYTHONIOENCODING": "utf-8"
-      },
-      "enabled": true,
-      "timeout": 60000
-    },
-    "cvekb": {
-      "type": "local",
-      "command": [
-        "{env:CVEKB_PYTHON}",
-        "{env:CVEKB_MCP_SERVER}"
-      ],
-      "environment": {
-        "CVEKB_ROOT": "{env:CVEKB_ROOT}",
+        "KB_ROOT": "{env:KB_ROOT}",
+        "KB_CONFIG": "{env:KB_CONFIG}",
         "PYTHONUTF8": "1",
         "PYTHONIOENCODING": "utf-8"
       },
