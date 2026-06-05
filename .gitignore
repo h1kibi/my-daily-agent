@@ -1,0 +1,9 @@
+# Ignore editor and system files
+.DS_Store
+Thumbs.db
+
+# Node artifacts
+node_modules/
+
+# Logs
+*.log
